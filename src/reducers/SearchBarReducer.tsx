@@ -8,6 +8,7 @@ export const initialStateOfSearchBar: SearchBarState = {
 	state: '',
 	county: '',
 	city: '',
+	type: '',
 }
 
 export const SearchBarReducer = (

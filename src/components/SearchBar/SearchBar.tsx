@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from '../UI/Input/Input'
 import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
+import CostumButton from '../UI/Button/CustomButton'
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	},
 
 	clearBtn: {
-		// background: '#d5d5d5',
+		background: '#d5d5d5',
 		letterSpacing: '2px',
 	},
 }))
@@ -66,9 +66,11 @@ const SearchBar: React.FC<inputProps> = ({
 				onChange={onSearchHandler}
 				defaultValue={searchBarState.city}
 			/>
-			<Button className={classes.clearBtn} onClick={onSearchClear}>
-				RESET
-			</Button>
+			<CostumButton
+				text='reset'
+				action={onSearchClear}
+				style={classes.clearBtn}
+			/>
 		</div>
 	)
 }

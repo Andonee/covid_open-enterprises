@@ -8,4 +8,5 @@ export interface SearchBarState {
 	readonly state?: string
 	readonly county?: string
 	readonly city?: string
+	readonly type?: string
 }
