@@ -2,10 +2,10 @@ import { useReducer } from 'react'
 import './App.css'
 import { makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 
 import SearchBar from './components/SearchBar/SearchBar'
 import TypesBar from './components/TypesBar/TypesBar'
+import ObjectsPanel from './components/ObjectsPanel/ObjectsPanel'
 
 import {
 	initialStateOfSearchBar,
@@ -28,9 +28,12 @@ const useStyles = makeStyles({
 		display: 'flex',
 		alignItems: 'center',
 	},
-	types: {
+	searchInput: {
 		boxShadow: '0px 4px 6px 0px #c0c0c0',
 		zIndex: 5,
+	},
+	types: {
+		marginBottom: '50px',
 	},
 	mapSection: {
 		height: 'calc(100vh - 160px)',
@@ -65,7 +68,7 @@ function App() {
 				<Grid item xs={12}>
 					<div className={classes.header}>header</div>
 				</Grid>
-				<Grid item xs={12} className={classes.types}>
+				<Grid item xs={12} className={classes.searchInput}>
 					<div className={classes.section}>
 						<SearchBar
 							onSearchHandler={onSearchHandler}
@@ -74,7 +77,7 @@ function App() {
 						/>
 					</div>
 				</Grid>
-				<Grid item xs={12}>
+				<Grid item xs={12} className={classes.types}>
 					<div className={classes.section}>
 						<TypesBar
 							onTypeChangeHandler={onTypeChangeHandler}
@@ -84,7 +87,7 @@ function App() {
 				</Grid>
 				<Grid container item xs={12} className={classes.mapSection}>
 					<Grid item xs={6}>
-						<Paper>List</Paper>
+						<ObjectsPanel />
 					</Grid>
 					<Grid item xs={6}>
 						Map

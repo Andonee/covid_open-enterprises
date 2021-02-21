@@ -13,6 +13,9 @@ const theme = createMuiTheme({
 		secondary: {
 			main: '#4c4c4c',
 		},
+		info: {
+			main: 'rgba(0, 0, 0, 0.04)',
+		},
 	},
 })
 
