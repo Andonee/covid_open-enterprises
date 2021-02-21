@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	},
 
 	clearBtn: {
-		background: '#d5d5d5',
+		background: theme.palette.primary.main,
 		letterSpacing: '2px',
 	},
 }))
@@ -26,6 +26,7 @@ interface inputProps {
 		state?: string
 		county?: string
 		city?: string
+		type?: string
 	}
 }
 

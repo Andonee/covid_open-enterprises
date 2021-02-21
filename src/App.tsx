@@ -76,7 +76,10 @@ function App() {
 				</Grid>
 				<Grid item xs={12}>
 					<div className={classes.section}>
-						<TypesBar onTypeChangeHandler={onTypeChangeHandler} />
+						<TypesBar
+							onTypeChangeHandler={onTypeChangeHandler}
+							searchBarState={searchBarState}
+						/>
 					</div>
 				</Grid>
 				<Grid container item xs={12} className={classes.mapSection}>
