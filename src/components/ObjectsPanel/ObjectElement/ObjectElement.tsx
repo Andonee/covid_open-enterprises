@@ -45,12 +45,42 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 			'& > li > span': {
 				fontWeight: 'bold',
+				marginLeft: '5px',
+
+				'& > a': {
+					textDecoration: 'none',
+					color: 'inherit',
+					transition: 'all .3s',
+				},
+				'& > a:hover': {
+					color: theme.palette.secondary.main,
+				},
 			},
 		},
 	},
 }))
 
-const ObjectElement = () => {
+interface inputProps {
+	data: {
+		id: string
+		type: string
+		name: string
+		hours: {
+			mon: { open: string; close: string }
+			tue: { open: string; close: string }
+			wed: { open: string; close: string }
+			thu: { open: string; close: string }
+			fri: { open: string; close: string }
+			sat: { open: string; close: string }
+			sun: { open: string; close: string }
+		}
+		address: string
+		www: string
+		info: string
+	}
+}
+
+const ObjectElement: React.FC<inputProps> = ({ data }) => {
 	const classes = useStyles()
 
 	return (
@@ -60,10 +90,10 @@ const ObjectElement = () => {
 				id='panel1c-header'
 				className={classes.accordion}>
 				<div className={classes.category}>
-					<Typography variant='h5'>Restaurant</Typography>
+					<Typography variant='h5'>{data.type}</Typography>
 				</div>
 				<div className={classes.name}>
-					<Typography variant='h5'>Name of a restaurant</Typography>
+					<Typography variant='h5'>{data.name}</Typography>
 				</div>
 				<div className={classes.showMore}>
 					<Typography variant='h5'>Show more</Typography>
@@ -74,25 +104,50 @@ const ObjectElement = () => {
 					<Typography variant='h5'>Open:</Typography>
 					<ul>
 						<Typography component='li' variant='h6'>
-							Monday <span>8:00 - 16:00</span>
+							Monday
+							<span>
+								{data.hours.mon.open} - {data.hours.mon.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Tuesday <span>8:00 - 16:00</span>
+							Tuesday
+							<span>
+								{data.hours.tue.open} - {data.hours.tue.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Wednesday <span>8:00 - 16:00</span>
+							Wednesday
+							<span>
+								{data.hours.wed.open} - {data.hours.wed.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Thursday <span>8:00 - 16:00</span>
+							Thursday
+							<span>
+								{data.hours.thu.open} - {data.hours.thu.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Friday <span>8:00 - 16:00</span>
+							Friday
+							<span>
+								{data.hours.fri.open} - {data.hours.fri.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Saturday <span>8:00 - 16:00</span>
+							Saturday
+							<span>
+								{data.hours.sat.open} - {data.hours.sat.close}
+							</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							Sunday <span>closed</span>
+							Sunday
+							{data.hours.sun.open ? (
+								<span>
+									{data.hours.sun.open} - {data.hours.sun.close}
+								</span>
+							) : (
+								<span>closed</span>
+							)}
 						</Typography>
 					</ul>
 				</div>
@@ -100,19 +155,19 @@ const ObjectElement = () => {
 					<Typography variant='h5'>Contact:</Typography>
 					<ul>
 						<Typography component='li' variant='h6'>
-							Adress: <span>ul. Konopacka 9/30 41-904 Katowice</span>
+							Adress: <span>{data.address}</span>
 						</Typography>
 						<Typography component='li' variant='h6'>
-							www: <span>www.onet.pl</span>
+							www:{' '}
+							<span>
+								<a href={data.www} target='_blank' rel='noopener noreferrer'>
+									{data.www}
+								</a>
+							</span>
 						</Typography>
 					</ul>
 					<Typography variant='h5'>Info:</Typography>
-					<Typography variant='h6'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-						consequatur reiciendis optio consectetur iure ipsum voluptates
-						dolore vel quos, repudiandae architecto quaerat distinctio animi
-						accusantium aspernatur omnis vitae corrupti ipsam.
-					</Typography>
+					<Typography variant='h6'>{data.info}</Typography>
 				</div>
 			</AccordionDetails>
 		</Accordion>
