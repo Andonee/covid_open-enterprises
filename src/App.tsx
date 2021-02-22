@@ -87,7 +87,7 @@ function App() {
 				</Grid>
 				<Grid container item xs={12} className={classes.mapSection}>
 					<Grid item xs={6}>
-						<ObjectsPanel />
+						<ObjectsPanel searchBarState={searchBarState} />
 					</Grid>
 					<Grid item xs={6}>
 						Map

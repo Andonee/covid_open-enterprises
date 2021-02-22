@@ -58,6 +58,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 			},
 		},
 	},
+
+	address: {
+		listStyle: 'none',
+		paddingLeft: 0,
+	},
 }))
 
 interface inputProps {
@@ -74,7 +79,13 @@ interface inputProps {
 			sat: { open: string; close: string }
 			sun: { open: string; close: string }
 		}
-		address: string
+		address: {
+			state: string
+			county: string
+			city: string
+			zipCode: string
+			street: string
+		}
 		www: string
 		info: string
 	}
@@ -155,7 +166,23 @@ const ObjectElement: React.FC<inputProps> = ({ data }) => {
 					<Typography variant='h5'>Contact:</Typography>
 					<ul>
 						<Typography component='li' variant='h6'>
-							Adress: <span>{data.address}</span>
+							<ul className={classes.address}>
+								<li>
+									Street: <span>{data.address.street}</span>
+								</li>
+								<li>
+									zip code: <span>{data.address.zipCode}</span>
+								</li>
+								<li>
+									City: <span>{data.address.city}</span>
+								</li>
+								<li>
+									County: <span>{data.address.county}</span>
+								</li>
+								<li>
+									State: <span>{data.address.state}</span>
+								</li>
+							</ul>
 						</Typography>
 						<Typography component='li' variant='h6'>
 							www:{' '}

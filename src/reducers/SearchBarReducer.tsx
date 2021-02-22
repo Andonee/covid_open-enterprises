@@ -19,7 +19,7 @@ export const SearchBarReducer = (
 		case 'search': {
 			return (state = {
 				...state,
-				[action.payload!.name]: action.payload!.value,
+				[action.payload!.name]: action.payload!.value.toLocaleLowerCase(),
 			})
 		}
 		case 'clear': {
