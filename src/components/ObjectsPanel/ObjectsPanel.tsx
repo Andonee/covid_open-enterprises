@@ -15,11 +15,6 @@ interface inputProps {
 }
 
 const ObjectsPanel: React.FC<inputProps> = ({ searchBarState }) => {
-	console.log(objects)
-	console.log(searchBarState.type)
-
-	console.log(filteredObjectsList(objects, searchBarState.type!))
-
 	let objectsList: {
 		id: string
 		type: string

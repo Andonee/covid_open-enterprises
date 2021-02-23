@@ -1,7 +1,6 @@
 import React from 'react'
-import Input from '../UI/Input/Input'
 import { makeStyles } from '@material-ui/core/styles'
-import CostumButton from '../UI/Button/CustomButton'
+import SearchBarTypesList from './SearchBarTypesList'
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -39,38 +38,10 @@ const SearchBar: React.FC<inputProps> = ({
 
 	return (
 		<div className={classes.root}>
-			<Input
-				name='name'
-				id='nazwaInput'
-				placeholder='Name'
-				onChange={onSearchHandler}
-				defaultValue={searchBarState.name}
-			/>
-			<Input
-				name='state'
-				id='stateInput'
-				placeholder='State'
-				onChange={onSearchHandler}
-				defaultValue={searchBarState.state}
-			/>
-			<Input
-				name='county'
-				id='countyInput'
-				placeholder='County'
-				onChange={onSearchHandler}
-				defaultValue={searchBarState.county}
-			/>
-			<Input
-				name='city'
-				id='cityInput'
-				placeholder='City'
-				onChange={onSearchHandler}
-				defaultValue={searchBarState.city}
-			/>
-			<CostumButton
-				text='reset'
-				action={onSearchClear}
-				style={classes.clearBtn}
+			<SearchBarTypesList
+				onSearchClear={onSearchClear}
+				onSearchHandler={onSearchHandler}
+				searchBarState={searchBarState}
 			/>
 		</div>
 	)
