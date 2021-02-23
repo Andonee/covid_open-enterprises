@@ -2,30 +2,30 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 
-const InputField = withStyles({
+const InputField = withStyles(theme => ({
 	root: {
 		width: '20%',
 		'& label': {
-			color: '#4c4c4c',
+			color: theme.palette.secondary.main,
 		},
 		'& label.Mui-focused': {
-			color: '#4c4c4c',
+			color: theme.palette.secondary.main,
 			fontSize: '12px',
 		},
 		'& input': {
-			color: '#4c4c4c',
+			color: theme.palette.secondary.main,
 		},
 
 		'& .MuiOutlinedInput-root': {
 			'& fieldset': {
-				borderColor: '#d5d5d5',
+				borderColor: theme.palette.primary.main,
 			},
 			'&:hover fieldset': {
-				borderColor: '#d5d5d5',
+				borderColor: theme.palette.primary.main,
 			},
 		},
 	},
-})(TextField)
+}))(TextField)
 
 interface inputProps {
 	name: string
